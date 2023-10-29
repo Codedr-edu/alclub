@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
+    <style>
+        .color-brand{
+            background-image: url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+        }
+
+        @media only screen and (max-width: 680px) {
+            .img{
+                height: 500px;
+            }
+
+            .head-text{
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .img{
+                height: auto;
+            }
+
+            .head-text{
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 770px) {
+            .img{
+                height: auto;
+            }
+
+            .head-text{
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 1000px) {
+
+
+            .img{
+                height: 742px;
+            }
+
+            .head-text{
+                padding-top:30%;
+            }
+        }
+    </style>  
+</head>
+<body>
+    <div class="container">
+        <div class="color-brand"></div>
+        <div style="padding:100px;">
+            <h1 class="title is-1 text-center">Đăng ký</h1>
+            <br>
+            <form method="post">
+                {% csrf_token %}
+                <h3>1. Thông Tin Cơ Bản</h3>
+                <div class="columns">
+                    <div class="column">
+                        <input class="form-control shadow" id="username" name="username" placeholder="Tên Người Dùng" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control shadow" id="cls" name="cls" placeholder="Khối Lớp" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control shadow" id="zalo" name="zalo" placeholder="Số Điện Thoại" />
+                    </div>
+                </div>
+                <h3>2. Thông Tin Liên Hệ</h3>
+                <div class="columns">
+                    <div class="column">
+                        <input class="form-control shadow" id="facebook" name="facebook" placeholder="Link Facebook" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control shadow" id="email" name="email" placeholder="Email" />
+                    </div>
+                </div>
+                <h3>3. Thông Tin Cá Nhân</h3>
+                <p>*Không Bắt Buộc</p>
+                <div class="columns">
+                    <div class="column">
+                        <input class="form-control shadow" id="good" name="good" placeholder="Môn Học Thích Nhất" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control shadow" id="bad" name="bad" placeholder="Môn Học Không Thích Nhất" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control shadow" id="like" name="like" placeholder="Sở Thích" />
+                    </div>
+                </div>
+                <h3>4. Ảnh</h3>
+                <div class="columns">
+                    <div class="column">
+                        <label>Avatar</label>
+                        <input type="file" class="form-control" id="avatar" name="avatar"/>
+                    </div>
+                    <div class="column">
+                        <label>Thumbnail</label>
+                        <input type="file" class="form-control" id="thumbnail" name="thumbnail"/>
+                    </div>
+                </div>
+                <h3>5. Mật Khẩu</h3>
+                <div class="columns">
+                    <div class="column">
+                        <input class="form-control shadow" type="password" id="password" name="password" placeholder="Mật Khẩu" />
+                    </div>
+                </div>
+                <h3>6. Mô Tả Bản Thân</h3>
+                <div class="columns">
+                    <div class="column">
+                        <textarea class="form-control shadow" rows="4" id="description" name="description" placeholder="Mô Tả Bản Thân"></textarea>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <p>Bằng Việc Bấm Nút Đăng Ký, Bạn Đã Đồng Ý Với <a href="" class="link-dark" style="text-decoration: underline solid black;">Điều Khoản</a> Của Chúng Tôi</p>
+                        <a href="" class="link-dark" style="text-decoration: underline solid black;">Đã có tài khoản? Đăng Nhập</a>
+                    </div>
+                    <div class="column">
+                        <button type="submit" class="btn btn-success w-100" style="height: 80px;">Đăng Ký</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

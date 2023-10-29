@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
+    <style>
+        .form_control:active{
+            border: 1px solid gray;
+        }
+
+        @media only screen and (max-width: 680px) {
+            .img{
+                height: 500px;
+            }
+
+            .head-text{
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .img{
+                height: auto;
+            }
+
+            .head-text{
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 770px) {
+            .img{
+                height: auto;
+            }
+
+            .head-text{
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (min-width: 1000px) {
+            html, body{
+                margin: 0; height: 100%; overflow: hidden;
+            }
+
+            .img{
+                height: 742px;
+            }
+
+            .head-text{
+                padding-top:30%;
+            }
+        }
+    </style>  
+</head>
+<body>
+    <div class="columns">
+        <div class="column h-100" style=" height: 100%;">
+            <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" class="img"/>
+        </div>
+        <div class="column">
+           <div class="container">
+                <div class="d-flex justify-content-center align-items-center vh-75 mx-auto card" style="display: block;box-shadow: none;border: none;">
+                    <h1 class="title is-1 text-center head-text">Đăng nhập</h1>
+                    <br>
+                    <div>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3 form-group">
+                                <input class="form-control form-control-lg w-100" id="username" name="username" placeholder="Tên Người Dùng" style="border-radius: 10px 10px 0px 0px;margin-bottom:-5px;border:1px solid gray;">
+                            </div>
+                            <div class="mb-3 form-group">
+                                <input class="form-control form-control-lg w-100" id="password" name="password" type="password" placeholder="Mật Khẩu" style="border-radius: 0px 0px 10px 10px;margin-top:-20px;border:1px solid gray;">
+                            </div>
+                            <a style="margin-top: -5px;margin-bottom: 5px;text-decoration: underline solid black;">Không có tài khoản?Đăng ký</a>
+                            <br>
+                            <button class="btn btn-success w-100" type="submit">Đăng nhập</button>
+                        </form>
+                    </div>
+               </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

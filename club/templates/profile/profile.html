@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+</head>
+<body>
+    <header class="bg-light">
+        <div class="px-3 py-2 bg-dark text-white">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                  <h1>Alclub</h1>
+                </a>
+      
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-house-fill"></i>
+                      Alclub
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-file-post-fill"></i>
+                      AlCommunity
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-calendar-date-fill"></i>
+                      Alevent
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-person-fill-add"></i>
+                      AlHire
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-wallet-fill"></i>
+                      AlFinacial
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown">
+                      <button class="nav-link text-white dropdown-toggle" style="border: none;background-color: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i> Tài Khoản
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Thông Tin Tài Khoản</a></li>
+                        <li><a class="dropdown-item">Thay Đổi Thông Tin Tài Khoản</a></li>
+                        <li><a class="dropdown-item link-danger">Đăng Xuất</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-3 py-2 sticky-top shadow mb-3">
+            <div class="container d-flex flex-wrap justify-content-center">
+              <form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+                <div class="columns">
+                    <div class="column">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm" aria-label="Search">
+                        
+                    </div>
+                    <div class="column mx-auto">
+                        <button class="btn w-100 btn-success">Tìm kiếm</button>
+                    </div>
+                </div>
+              </form>
+      
+              <div class="text-end">
+                <button type="button" class="btn w-100 btn-danger text-light me-2">Bài Viết Quan Trọng</button>
+              </div>
+            </div>
+          </div>
+    </header>
+    <main>
+        <img class="w-100 h-100" src="{{user.thumbnail.urls}}" \>
+        <div class="container">
+            <div class="columns">
+                <div class="column is-one-fifth">
+                    <img style="width: 100px;height: 100px;" class="rounded-circle" src="{{user.avatar.urls}}" \>
+                </div>
+                <div class="column">
+                    <h1>{{user.username}}</h1>
+                </div>
+            </div>
+        </div>    
+    </main>
+    <footer class="fixed-bottom text-center" style="margin-bottom: 10px;">
+        Copyright
+    </footer>
+</body>
+</html>

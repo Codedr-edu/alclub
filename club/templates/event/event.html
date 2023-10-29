@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+</head>
+<body>
+    <header class="bg-light">
+        <div class="px-3 py-2 bg-dark text-white">
+            <div class="container">
+              <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                  <h1>Alclub</h1>
+                </a>
+      
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-house-fill"></i>
+                      Alclub
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-file-post-fill"></i>
+                      AlCommunity
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-secondary">
+                        <i class="bi bi-calendar-date-fill"></i>
+                      Alevent
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-person-fill-add"></i>
+                      AlHire
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi bi-wallet-fill"></i>
+                      AlFinacial
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown">
+                      <button class="nav-link text-white dropdown-toggle" style="border: none;background-color: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i> Tài Khoản
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item">Thông Tin Tài Khoản</a></li>
+                        <li><a class="dropdown-item">Thay Đổi Thông Tin Tài Khoản</a></li>
+                        <li><a class="dropdown-item link-danger">Đăng Xuất</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="px-3 py-2 shadow mb-3">
+            <div class="container d-flex flex-wrap justify-content-center">
+              <form action="GET" action="search/event/" class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+                <input type="search" class="form-control" placeholder="Tìm kiếm" aria-label="Search"> <button class="btn w-100 btn-success">Tìm kiếm</button>
+              </form>
+      
+              <div class="text-end">
+                <button type="button" class="btn btn-danger text-light me-2">Bài Viết Quan Trọng</button>
+              </div>
+            </div>
+          </div>
+    </header>
+    <main>
+        <div class="container">
+            <br>
+            <div class="card w-75 d-flex justify-content-center align-items-center mx-auto vh-75" style="box-shadow: none;border: none;">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success w-100 shadow">Tạo Bài Viết</button>
+            </div>
+            <br>
+            <div class="card d-flex justify-content-center align-items-center mx-auto vh-75 w-75" style="padding:3%;">
+                <a href="{% url 'pin_post' %}" class="link-dark"><h3><i class="bi bi-exclamation-triangle-fill"></i> Đang có {{pin}} bài viết quan trọng bạn cần phải xem</h3></a>
+            </div>
+            <br>
+            {% if posts|length != 0 %}
+                {% for posts in post %}
+                <div class="card w-75 d-flex justify-content-center align-items-start mx-auto">
+                  <div class="card-header w-100">
+                    <div class="row align-self-end">
+                      <div class="col">
+                        <div class="dropdown">
+                          <button class="" style="border: none;background-color: transparent;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-three-dots-vertical"></i>
+                          </button>
+                          <ul class="dropdown-menu">
+                            {% if request.user.id == post.user.id %}
+                              <li><button data-bs-target="#delete" data-bs-toggle="modal" class="dropdown-item link-danger" href="#">Xóa Sự Kiện</button></li>
+                            {% else %}
+                              <li><button data-bs-target="#down" data-bs-toggle="modal" class="dropdown-item" href="#">Báo Cáo Sự Kiện</button></li>
+                            {% endif %}
+                            <li><a class="dropdown-item" href="#">Chi Tiết Sự Kiện</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    {% if post.image %}
+                        <img src="{{ post.image.urls }}" class="card-img-top" alt="...">
+                    {% endif %}
+                    <div class="card-body w-100">
+                      <h2><a href="{{post.link}}" class="link-dark">{{post.name}}</a></h2>
+                      <p class="card-text">{{post.description}}</p>
+                      <a href="{% url 'event_joiner' id=post.id %}" class="btn btn-primary w-100">Tham Dự Ngay!</a>
+                    </div>
+                    <div class="card-footer justify-content-center w-100">
+                        <p>Tổ chức bởi {{post.club.name}} & Đăng bởi <img src="{{post.user.avatar.url}}" class="rounded-circle" style="width: 50px;"> {{post.user.user.username}}</p>
+                    </div>
+                  </div>
+                {% endfor %}
+            {% else %}
+                    <div class="card w-75 align-items-center justify-content-center vh-75 mx-auto d-flex text-center">
+                        <h1 style="padding: 15px;">Chưa có bài viết nào</h1>
+                    </div>
+            {% endif %}
+        </div>
+    </main>
+    <footer class="fixed-bottom text-center" style="margin-bottom: 10px;">
+        Copyright
+    </footer>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <h5 class="title is-4">Đăng Sự Kiện</h5>
+              <form action="/create/event/" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="columns">
+                    <div class="column">
+                        <input class="form-control" name="name" id="name" placeholder="Tên sự kiện" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control" name="ticket_sell" placeholder="Số vé bán ra" />
+                    </div>
+                    <div class="column">
+                        <select class="form-control" name="club" id="club">
+                          {% for club in clubs %}
+                            <option value="{{club.id}}">{{club.name}} bởi {{club.user.username}}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <select class="form-control" id="payment" name="payment">
+                          {% for pay in payment %}
+                            <option value="{{pay.id}}">{{pay.name}}</option>
+                          {% endfor %}
+                        </select>
+                    </div>
+                    <div class="column">
+                      <input class="form-control" name="ticket_price" placeholder="Giá vé" />
+                    </div>
+                    <div class="column">
+                        <input class="form-control" name="image" placeholder="Ảnh" type="file" />
+                    </div>
+                </div>
+                <div class="columns"><div class="column"><input type="date" class="form-control" id="date" name="date" /></div></div>
+                <div class="columns"><div class="column"><textarea class="form-control" placeholder="Mô tả sự kiện" cols="100" rows="5"></textarea></div></div>
+                <div class="columns">
+                    <div class="column">
+                        <p>Với việc bấm "Đăng sự kiện" thì bạn đã đồng ý với các <a class="link-success">điều khoản về sự kiện</a> của chúng tôi</p>
+                    </div>
+                    <div class="column">
+                        <button class="btn btn-success w-100">Đăng sự kiện</button>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            Xóa Sự Kiện
+          </div>
+          <div class="modal-body">
+            Bạn có Chắc Là Muốn Xóa Sự Kiện Này Không?
+          </div>
+          <div class="modal-footer">
+                <a href="" class="btn btn-danger">Tôi Chắc Chắn</a>
+                <a href="" class="btn btn-secondary" data-bs-dismiss="#delete">Không, Tôi Không Muốn Xóa</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="down" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            Báo Cáo Sự Kiện
+          </div>
+          <div class="modal-body">
+            Bạn có Chắc Là Muốn Báo Cáo Sự Kiện Này Không?
+          </div>
+          <div class="modal-footer">
+                <a href="" class="btn btn-danger">Tôi Chắc Chắn</a>
+                <a href="" class="btn btn-secondary" data-bs-dismiss="#down">Không, Tôi Không Muốn Báo Cáo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
